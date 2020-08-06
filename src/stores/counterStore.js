@@ -1,25 +1,28 @@
 // src/stores/counter-store.tsx
-import { observable, action, computed } from 'mobx'
+import { observable, action, computed, decorate } from 'mobx'
 
 export class CounterStore {
 
-  @observable
-  count = 0
+    count = 0
 
-  //addEvenlistener
-  @action
-  increment() {
-    this.count++
-  }
+    //addEvenlistener
+    increment() {
+        this.count++
+    }
 
-  @action
-  decrement() {
-    this.count--
-  }
+    decrement() {
+        this.count--
+    }
 
-  //autoRun
-  @computed
-  get doubleCount() {
-    return this.count * 2
-  }
+    //autoRun
+    get doubleCount() {
+        return this.count * 2
+    }
 }
+
+decorate(CounterStore, {
+    count: observable,
+    increment: action,
+    decrement: action,
+    doubleCount: computed
+})

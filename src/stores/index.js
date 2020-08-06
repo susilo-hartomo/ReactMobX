@@ -1,6 +1,7 @@
-import React, { createContext } from 'react'
+import { createContext } from 'react'
 import { CounterStore } from './counterStore'
 
-export const store = createContext({
+export const Store = createContext({
     counter: new CounterStore()
 })
+
